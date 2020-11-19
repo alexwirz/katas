@@ -10,9 +10,8 @@ func TwoSum(numbers []int, sum int) (int, int, error) {
 	}
 
 	for i := 0; i < len(numbers); i++ {
-		current := numbers[i]
 		for j := i + 1; j < len(numbers); j++ {
-			if current+numbers[j] == sum {
+			if numbers[i]+numbers[j] == sum {
 				return i, j, nil
 			}
 		}
