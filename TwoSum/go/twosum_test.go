@@ -25,3 +25,15 @@ func TestArrayWithTwoElements(t *testing.T) {
 		t.Errorf("Expected (0, 1) but got: (%d, %d)", first, second)
 	}
 }
+
+func TestArrayWithThreeElements(t *testing.T) {
+	t.Parallel()
+	first, second, err := twosum.TwoSum([]int{1, 2, 3}, 4)
+	if err != nil {
+		t.Errorf("Unexpected error: %s", err)
+	}
+
+	if first != 0 || second != 2 {
+		t.Errorf("Expected (0, 2) but got: (%d, %d)", first, second)
+	}
+}
