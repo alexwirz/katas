@@ -49,3 +49,27 @@ func TestArrayWithAnotherThreeElements(t *testing.T) {
 		t.Errorf("Expected (1, 2) but got: (%d, %d)", first, second)
 	}
 }
+
+type testCase struct {
+	sum           int
+	numbers       []int
+	first, second int
+}
+
+func TestWithCases(t *testing.T) {
+	t.Parallel()
+	testCases := []testCase{
+		{sum: 4, numbers: []int{1, 2, 3}, first: 0, second: 2},
+	}
+
+	for _, tc := range testCases {
+		first, second, err := twosum.TwoSum(tc.numbers, tc.sum)
+		if err != nil {
+			t.Errorf("Unexpected error: %s", err)
+		}
+
+		if first != tc.first || second != tc.second {
+			t.Errorf("Expected (%d, %d) but got: (%d, %d)", tc.first, tc.second, first, second)
+		}
+	}
+}
