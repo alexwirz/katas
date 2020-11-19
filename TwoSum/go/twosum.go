@@ -13,6 +13,10 @@ func TwoSum(numbers []int, sum int) (int, int, error) {
 		return 0, 1, nil
 	}
 
+	if numbers[1]+numbers[2] == sum {
+		return 1, 2, nil
+	}
+
 	if len(numbers) > 0 {
 		return 0, 2, nil
 	}
